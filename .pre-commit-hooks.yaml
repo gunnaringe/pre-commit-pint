@@ -3,6 +3,7 @@
   description: Lint alert files
   language: docker_image
   entry: ghcr.io/cloudflare/pint:0.29.4 /usr/local/bin/pint
+  types: [yaml]
   args:
     - --offline
     - lint
