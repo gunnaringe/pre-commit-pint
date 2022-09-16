@@ -1,3 +1,5 @@
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+
 # pre-commit-pint
 
 Pre commit checks for linting with [pint](https://github.com/cloudflare/pint),
