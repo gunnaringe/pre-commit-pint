@@ -1,0 +1,9 @@
+- id: lint
+  name: Lint alert files
+  description: Lint alert files
+  language: docker_image
+  entry: ghcr.io/cloudflare/pint:0.29.4
+  files: ^$
+  args:
+    - lint
+    - --offline
