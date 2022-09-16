@@ -9,11 +9,31 @@ which is a brilliant Prometheus rule linter by Cloudflare.
 
 It will automatically pick up the default pint config.
 
-This can be used to enable relaxed parsing, which allows parsing k8s manifests directly.
+Severity must be set to 'fatal' or 'bug' for `pint lint` to return a non-zero exit code,
+thus failing the check.
 
-#### .pint.hcl
+#### Example `.pint.hcl`
 ```hcl
+# Allows parsing k8s manifests directly
 parser {
   relaxed = [ "(.*)" ]
+}
+
+rule {
+  # This block will apply to all alerting rules with severity="critical" label set.
+  match {
+    kind = "alerting"
+
+    label "severity" {
+      value = "critical"
+    }
+  }
+
+  # All severity="critical" alerts must have a runbook link as annotation.
+  annotation "runbook" {
+    severity = "bug"
+    value    = "https://runbook.example.com/.+"
+    required = true
+  }
 }
 ```

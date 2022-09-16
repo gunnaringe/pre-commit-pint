@@ -1,4 +1,4 @@
-- id: lint-docker
+- id: pint-lint
   name: Lint alert files (using Docker)
   description: Lint alert files
   language: docker_image
